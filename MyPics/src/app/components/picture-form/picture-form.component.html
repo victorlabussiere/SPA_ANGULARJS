@@ -1,0 +1,31 @@
+<form (ngSubmit)="submit()" [formGroup]="myPicsForm" #formDir="ngForm">
+
+    <div class="form-group">
+        <label for="title">Título:</label>
+
+        <input type="text" placeholder="Coloque um título" formControlName="title" required />
+        
+        <div *ngIf="title.invalid && formDir.submitted" class="validationError"> 
+            <p *ngIf="title.errors?.['required']">O título é obrigatório.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Descrição:</label>
+
+        <input type="text" placeholder="Descreva essa picture" formControlName="description" required>
+        
+        <div *ngIf="description.invalid && formDir.submitted" class="validationError">
+            <p *ngIf="title.errors?.['required']">A descrição é obrigatória.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="picture">Selecionar Foto:</label>
+        <input type="file" name="picture" formControlName="picture" (change)="onFileSelected($event)">
+    </div>
+
+    <input type="submit" value="{{btnText}}">
+    <a href="javascript:console.clear()" class="console_reset"> resetar console</a>
+
+</form>

@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #444;
+    transition: .2s all
+}
+
+a:hover {
+    color: #dec129;
+}
+
+.console_reset {
+    padding: 1rem .4rem;
+    background-color: #444;
+    color: #fff;
+    align-self: center;
+    margin-top: 10rem;
+    margin-bottom: 1rem;
+}

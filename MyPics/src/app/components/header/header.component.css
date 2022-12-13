@@ -1,0 +1,43 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: .6rem 4rem;
+    border: 1px solid #444;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-self: flex-start;
+    gap: 1.2rem;
+}
+
+.brand h2 {
+    transition: .2s all;
+}
+
+.brand:hover>h2 {
+    color: #dec129
+}
+
+.brand image {
+    width: 40px;
+}
+
+#add a {
+    color: #dec129
+}
+
+#add a:hover {
+    background-color: #efefef;
+    border-radius: .5em;
+}

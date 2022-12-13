@@ -1,16 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http"
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // para validação de formulários.
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AboutComponent } from './components/pages/about/about.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { NewPictureComponent } from './components/pages/new-picture/new-picture.component';
+import { PictureFormComponent } from './components/picture-form/picture-form.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    AboutComponent,
+    HomeComponent,
+    NewPictureComponent,
+    PictureFormComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
