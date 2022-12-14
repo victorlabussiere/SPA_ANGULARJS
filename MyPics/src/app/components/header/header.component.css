@@ -1,43 +1,51 @@
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    width: 100%;
-    padding: .6rem 4rem;
-    border: 1px solid #444;
+  width: 100%;
+  height: min-content;
+  padding: 0.6rem 4rem;
+  border: 1px solid #444;
 }
 
 ul {
-    display: flex;
-    list-style: none;
-    gap: 1.2rem;
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
 }
 
 .brand {
-    display: flex;
-    align-items: center;
-    justify-self: flex-start;
-    gap: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  gap: 1.2rem;
 }
 
 .brand h2 {
-    transition: .2s all;
+  transition: 0.2s all;
 }
 
-.brand:hover>h2 {
-    color: #dec129
+.brand:hover > h2 {
+  color: #dec129;
 }
 
 .brand image {
-    width: 40px;
+  width: 40px;
 }
 
 #add a {
-    color: #dec129
+  font-weight: bold;
+  background-color: #746208;
+  color: white;
+  box-sizing: border-box;
+
+  padding: 1rem;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, .2);
 }
 
 #add a:hover {
-    background-color: #efefef;
-    border-radius: .5em;
+  background-color: #dec129;;
+  color: #444;
+  box-sizing: border-box;
 }

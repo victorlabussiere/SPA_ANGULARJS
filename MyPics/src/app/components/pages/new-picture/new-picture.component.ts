@@ -1,37 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { MyPics } from 'src/app/MyPics';
 import { MypicsService } from 'src/app/services/mypics.service';
+import { MessagesService } from 'src/app/services/messages.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-picture',
   templateUrl: './new-picture.component.html',
-  styleUrls: ['./new-picture.component.css']
+  styleUrls: ['./new-picture.component.css'],
 })
 export class NewPictureComponent {
-  btnText = "Compartilhar!";
+  btnText = 'Compartilhar!';
 
-  constructor(private myPicService: MypicsService) {
+  constructor(
+    private myPicService: MypicsService,
+    public messageService: MessagesService,
+    private router: Router
+  ) {}
 
-  }
+  ngOnInit(): void {}
 
-  ngOnInit():void {}
+  async createHandler(mypics: MyPics) {
+    const formData = new FormData();
 
-  async createHandler(mypics: MyPics) { // segura as informações enviadas no formulário. 
-    const formData = new FormData()
+    formData.append('title', mypics.title);
+    formData.append('description', mypics.description);
 
-    formData.append('title', mypics.title)  // definido data 'title' vindo do formulário
-    formData.append('description', mypics.description)  // definindo data 'descripition' vindo do formulário
-    
-    if (mypics.image) formData.append('image', mypics.image) // definindo 'image' vindo do formulário
-       
+    if (mypics.image) formData.append('image', mypics.image);
+
     // TODO:
     // 1- enviar para o service
-    const result = await this.myPicService.createPic(formData).subscribe()
-    if(!result ) throw Error('Algo deu errado')
-    
+    const result = await this.myPicService.createPic(formData).subscribe();
+    if (!result) throw Error('Algo deu errado');
+
     // 2- exibir msg
-    console.log('Foto enviada') // feedback no console.
-    
+    console.log('Foto enviada'); // feedback no console.
+    this.messageService.add('Pic! adicionado com sucesso!');
+
     // 3- redirect
+    this.router.navigate(['/']);
   }
 }

@@ -1,0 +1,38 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 3rem;
+  gap: 1.4rem;
+}
+h2 {
+  text-align: center;
+  font-size: 2.2em;
+}
+
+h2 span {
+  color: #dec129;
+}
+
+.about button {
+  background-color: #efefef;
+  border: 2px solid transparent;
+  padding: 0.6em 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s all;
+  width: 100%;
+  color: #444;
+}
+
+.about button:hover {
+  color: #444;
+  border-color: #dec129;
+  background-color: transparent;
+  border: 3px solid #dec129;
+}

@@ -13,6 +13,8 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { NewPictureComponent } from './components/pages/new-picture/new-picture.component';
 import { PictureFormComponent } from './components/picture-form/picture-form.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,16 @@ import { PictureFormComponent } from './components/picture-form/picture-form.com
     AboutComponent,
     HomeComponent,
     NewPictureComponent,
-    PictureFormComponent
+    PictureFormComponent,
+    MessagesComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

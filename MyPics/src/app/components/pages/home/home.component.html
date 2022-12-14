@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div class="home-container">
+    <h1>Veja o que estão compartilhando agora!</h1>
+    <!-- form busca -->
+    <div *ngIf="allPics.length > 0; else noPics">
+        <div class="pictures-container">
+            <div class="picture" *ngFor="let pic of allPics">
+                <img src="{{apiUrl}}/uploads/{{pic.image}}" alt="{{pic.title}}">
+                <h3> {{pic.title}}</h3>
+                <p class="date">Em: {{pic.created_at}}</p>
+                <p>Comentários: {{pic.comments!.length}}</p>
+                <p><a routerLink="/{{pic.id}}">Detalhes</a></p>
+            </div>
+        </div>
+    </div>
+    <ng-template #noPics>
+        <h1> Não há Pictures cadastradas </h1>
+    </ng-template>
+</div>
