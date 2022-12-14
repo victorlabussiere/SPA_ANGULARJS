@@ -16,9 +16,9 @@ export class NewPictureComponent {
     private myPicService: MypicsService,
     public messageService: MessagesService,
     private router: Router
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   async createHandler(mypics: MyPics) {
     const formData = new FormData();
@@ -29,15 +29,15 @@ export class NewPictureComponent {
     if (mypics.image) formData.append('image', mypics.image);
 
     // TODO:
+
     // 1- enviar para o service
     const result = await this.myPicService.createPic(formData).subscribe();
     if (!result) throw Error('Algo deu errado');
-
-    // 2- exibir msg
-    console.log('Foto enviada'); // feedback no console.
-    this.messageService.add('Pic! adicionado com sucesso!');
-
-    // 3- redirect
-    this.router.navigate(['/']);
+    else {
+      // 2- exibir msg
+      this.messageService.add('Pic! adicionado com sucesso!');
+      // 3- redirect
+      setTimeout(() => this.router.navigate(['/']), 1000);
+    }
   }
 }

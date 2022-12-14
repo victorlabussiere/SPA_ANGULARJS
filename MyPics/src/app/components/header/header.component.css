@@ -6,7 +6,7 @@ nav {
   width: 100%;
   height: min-content;
   padding: 0.6rem 4rem;
-  border: 1px solid #444;
+  border: 1px solid #D8EBED;
 }
 
 ul {
@@ -22,21 +22,40 @@ ul {
   gap: 1.2rem;
 }
 
+li a {
+  color: #135A62;
+}
+
+li a:hover {
+  color: #dec129
+}
+
+.brand img {
+  width: 40px;
+  box-sizing: border-box;
+}
+
 .brand h2 {
   transition: 0.2s all;
 }
 
-.brand:hover > h2 {
+.brand img:hover {
+  transition: .2s all ease-in-out;
+  transform: scale(1.2);
+}
+
+.brand:hover>h2 {
   color: #dec129;
 }
 
-.brand image {
+.brand img {
+  transition: .2s all ease-in-out;
   width: 40px;
 }
 
 #add a {
   font-weight: bold;
-  background-color: #746208;
+  background-color: #dec129;
   color: white;
   box-sizing: border-box;
 
@@ -45,7 +64,45 @@ ul {
 }
 
 #add a:hover {
-  background-color: #dec129;;
-  color: #444;
+  background-color: #eed248;
+  box-sizing: border-box;
+}
+
+i {
+  font-family: 'Font Awesome\ 5 Free';
+}
+
+i::before {
+  content: '\f355';
+}
+
+a .subNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  margin: 0 auto;
+  gap: .5rem;
+  color: #135A62;
+  background-color: #D8EBED;
+
+  transition: .2s all ease-in-out;
+  border-radius: 0 0 .8em .8em;
+
+  font-weight: bold;
+}
+
+.subNav:hover {
+  transform: scale(1.02);
+}
+
+.subNav a {
+  color: #135A62;
+  transition: .2s all;
+}
+
+.subNav a:hover {
+  color: #bfa41c;
   box-sizing: border-box;
 }

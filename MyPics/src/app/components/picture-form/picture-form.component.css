@@ -1,9 +1,12 @@
 form {
-  width: 30rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+
+  gap: 1.6rem;
+  padding: 2rem 0;
 }
 
 .form-group {
@@ -12,9 +15,9 @@ form {
   align-items: flex-start;
   justify-content: center;
 
-  padding: 1rem;
   gap: 0.2rem;
   width: 100%;
+  color: #135A62;
 }
 
 .form-group label {
@@ -22,27 +25,34 @@ form {
   font-size: 0.9em;
 }
 
-.form-group input {
-  padding: 0.4rem 1rem;
+.form-input {
+  padding: 0.6rem 1rem;
   width: 100%;
   color: 0.8em;
+  border: solid 1px transparent;
 }
 
-input[type="submit"] {
-  background-color: #efefef;
-  border: 2px solid transparent;
-  padding: 0.6em 1em;
-  font-weight: bold;
+.form-input:focus-visible {
+  background-color: #fff;
+  border: solid 1px #135A62;
+}
+
+.form-group input[type='file'] {
+  display: none;
+}
+
+.file-image {
+  text-align: center;
   cursor: pointer;
-  transition: 0.2s all;
+  padding: .8rem 1rem;
   width: 100%;
-  color: #444;
+  color: white;
+  background-color: #135A62;
+  transition: all .2s ease-in-out;
 }
 
-input[type="submit"]:hover {
-  color: #444;
-  border-color: #dec129;
-  background-color: transparent;
+.file-image:hover {
+  transform: scale(1.02);
 }
 
 .validationError {

@@ -1,11 +1,15 @@
 <nav>
     <a class="brand" routerLink="/">
-        <img src="../../../assets/pic-jpg.png">
+        <img src="../../../assets/pic-png.png">
         <h2> MyPics </h2>
     </a>
     <ul class="links">
-        <li id="add"><a routerLink="/mypics/new">Compartilhar</a></li>
-        <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/about">Sobre</a></li>
+        <li id="add"><a routerLink="/mypics/new">Compartilhar</a></li>
     </ul>
 </nav>
+<a routerLink="/">
+    <nav class="subNav">
+        <p>Ir para o Feed</p>
+    </nav>
+</a>

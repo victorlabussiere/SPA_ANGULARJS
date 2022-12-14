@@ -14,34 +14,34 @@ export class PictureFormComponent {
 
   myPicsForm!: FormGroup
 
-  constructor() {} // inicialização com a instancialização.
+  constructor() { } // inicialização com a instancialização.
 
   ngOnInit(): void {  // inicialização após o angular ler seus componentes.
-    
-    this.myPicsForm = new FormGroup ( {
-    
+
+    this.myPicsForm = new FormGroup({
+
       id: new FormControl(''),
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
       image: new FormControl('')  // atributo iniciado pelo angular com valor = ''
-    
-    }) 
+
+    })
 
   }
-  
-  get title () {return this.myPicsForm.get('title')!}
-  get description () {return this.myPicsForm.get('description')!}
-  
+
+  get title() { return this.myPicsForm.get('title')! }
+  get description() { return this.myPicsForm.get('description')! }
+
   onFileSelected(event: any) {
     const [file]: File[] = event.target.files
-    const result = this.myPicsForm.patchValue({image:file}) // valor definido fora do ngOnInit pelo método patchValue
-    
+    const result = this.myPicsForm.patchValue({ image: file }) // valor definido fora do ngOnInit pelo método patchValue
+
     return result
   }
 
   submit() {
-    this.myPicsForm.invalid 
-    ? console.error('Erro de validação. Confira as informações')
-    : this.onSubmit.emit(this.myPicsForm.value)
+    this.myPicsForm.invalid
+      ? console.error('Erro de validação. Confira as informações')
+      : this.onSubmit.emit(this.myPicsForm.value)
   }
 }

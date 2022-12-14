@@ -1,4 +1,7 @@
+import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { HomeComponent } from '../pages/home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+  leftArrow = faArrowLeft
 }
