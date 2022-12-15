@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { MyPics } from 'src/app/MyPics' // interface
-import { MypicsService } from 'src/app/services/mypics.service' // services 
+// services 
+import { MypicsService } from 'src/app/services/mypics.service'
+import { MessagesService } from 'src/app/services/messages.service'
 
 import { ActivatedRoute, Router } from '@angular/router' // routes
 
@@ -16,7 +18,8 @@ export class EditPictureComponent {
   constructor(
     private MyPicService: MypicsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessagesService
   ) { }
 
   ngOnInit() {
@@ -26,6 +29,33 @@ export class EditPictureComponent {
     this.MyPicService.getPicById(id).subscribe(item => {
       return this.picture = item.data
     })
+  }
+
+  async editHandler(pictureData: MyPics) {
+    const id = this.picture.id
+    const formData = new FormData()
+
+    formData.append('title', pictureData.title)
+    formData.append('description', pictureData.description)
+    if (pictureData.image) formData.append('image', pictureData.image)
+
+    let validation: boolean = confirm(`Por favor, confira se as informações estão corretas\n
+    Título: ${pictureData.title}\n
+    Descrição: ${pictureData.description}
+    `)
+
+    if (validation) {
+      try {
+        await this.MyPicService.updatePic(id!, formData).subscribe()
+        this.messageService.add('Picture atualizada com sucesso!')
+        setTimeout(() => {
+          this.router.navigate(['/'])
+        }, 1500);
+      } catch (errorUpdate) {
+        this.messageService.add('Erro ao atualizar sua Picture')
+        throw console.error('Erro ao Atualizar', errorUpdate)
+      }
+    }
   }
 
 }

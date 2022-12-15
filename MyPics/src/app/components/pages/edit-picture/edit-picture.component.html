@@ -4,6 +4,7 @@
         <img src="{{picture.image}}" alt=" Título: {{picture.title}}" class="picture-file">
     </header>
 
-    <app-picture-form class="edit-form" [pictureData]="picture" [btnText]="btnText"></app-picture-form>
+    <app-picture-form (onSubmit)="editHandler($event)" class="edit-form" [pictureData]="picture"
+        [btnText]="btnText"></app-picture-form>
 
 </div>

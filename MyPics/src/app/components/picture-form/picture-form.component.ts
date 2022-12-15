@@ -23,8 +23,8 @@ export class PictureFormComponent {
     this.myPicsForm = new FormGroup({
 
       id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      title: new FormControl(this.pictureData ? this.pictureData.title : '', [Validators.required]),
+      description: new FormControl(this.pictureData ? this.pictureData.description : '', [Validators.required]),
       image: new FormControl('')  // atributo iniciado pelo angular com valor = ''
 
     })

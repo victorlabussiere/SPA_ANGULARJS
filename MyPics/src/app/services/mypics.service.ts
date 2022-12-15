@@ -33,4 +33,9 @@ export class MypicsService {
     const url: string = `${this.apiUrl}/${id}`
     return this.http.delete(url)
   }
+
+  updatePic(id: number, formData: FormData): Observable<FormData> {
+    const url: string = `${this.apiUrl}/${id}`
+    return this.http.put<FormData>(url, formData)
+  }
 }
