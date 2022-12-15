@@ -14,12 +14,12 @@
         <div class="pictures-container">
             <div class="picture" *ngFor="let pic of pics">
 
-                <img src="{{apiUrl}}/uploads/{{pic.image}}" alt="Título: {{pic.title}}">
+                <img src="{{baseApiUrl}}uploads/{{pic.image}}" alt="Título: {{pic.title}}">
                 <h3> {{pic.title}}</h3>
 
                 <p class="date">Em: {{pic.created_at}}</p>
                 <p>Comentários: {{pic.comments!.length}}</p>
-                <p><a routerLink="/{{pic.id}}">Detalhes</a></p>
+                <p><a routerLink="{{page}}/{{pic.id}}">Detalhes</a></p>
 
             </div>
         </div>

@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    padding: 1em;
+    gap: 1rem;
+    border: 1px solid #dfdfdf;
+}
+
+.file-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 40vw;
+    min-height: 40vh;
+    gap: .4rem;
+}
+
+.picture-file {
+    width: 100%;
+    min-height: 40vh;
+    background-color: #efefef;
+    text-align: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    gap: 1rem;
+}
+
+.action-button {
+    padding: .4rem .8rem;
+    border: 1px solid #135A62;
+    color: #135A62;
+    font-weight: 700;
+
+    transition: .2s all ease-in-out;
+}
+
+.action-button:hover {
+    background-color: #135A62;
+    color: #fff;
+    padding: .4rem .8rem;
+    border: 1px solid #135A62;
+}
+
+.delete-button:hover {
+    background-color: #cb2a1e;
+    color: #fff;
+    padding: .4rem .8rem;
+    border: 1px solid #cb2a1e;
+}

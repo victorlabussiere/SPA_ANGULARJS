@@ -1,0 +1,26 @@
+<div *ngIf="picture" class="container">
+    <div class="file-container">
+        <h2>{{picture.title}}</h2>
+        <img class="picture-file" src="{{baseUrl}}/{{picture.id}}/uploads/{{picture.image}}"
+            alt=" Título: {{picture.title}}">
+    </div>
+
+    <div class="description">
+        <h3>Sobre a Picture: </h3>
+        <p>{{picture.description}}</p>
+    </div>
+
+
+    <div class="actions">
+
+        <a routerLink="edit" class="editButton action-button">
+            <fa-icon>{{faEdit}}</fa-icon>
+            Editar Picture
+        </a>
+        <button class="delete-button action-button" (click)="removeHandler(picture.id!)">
+            <fa-icon>{{faTimes}}</fa-icon>
+            Deletar Picture
+        </button>
+    </div>
+    <!-- TODO Comentários -->
+</div>

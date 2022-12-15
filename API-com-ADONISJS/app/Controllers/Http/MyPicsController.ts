@@ -50,6 +50,7 @@ export default class MyPicsController {
 
         response.status(200)
         await result.load('comments')
+        await result
         return {
             data: result
         }

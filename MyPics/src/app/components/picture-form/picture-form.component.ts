@@ -11,8 +11,10 @@ import { MyPics } from 'src/app/MyPics';
 export class PictureFormComponent {
   @Output() onSubmit = new EventEmitter<MyPics>
   @Input() btnText!: string
+  @Input() pictureData: MyPics | null = null
 
   myPicsForm!: FormGroup
+
 
   constructor() { } // inicialização com a instancialização.
 

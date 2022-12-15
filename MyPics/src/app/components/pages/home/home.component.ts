@@ -22,8 +22,9 @@ export class HomeComponent {
   pics: MyPics[] = [] // -> realiza um filtro para buscas de fotos
 
   // environment
-  baseApiUrl = new Env('mypics')
-  apiUrl = this.baseApiUrl.apiUrl
+  page: string = 'mypics'
+  baseApiUrl = new Env(this.page) // localhost:3333/api/[page = mypics]
+  apiUrl = this.baseApiUrl.apiUrl //localhost:3333/api/page/
 
   // todo search
 
@@ -32,7 +33,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
     // home load on initialization
-    this.myPicService.getPic().subscribe(async i => {
+    this.myPicService.getPics().subscribe(async i => {
       const data = i.data
 
       data.map(e => {

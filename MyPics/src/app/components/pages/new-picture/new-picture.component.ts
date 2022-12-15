@@ -25,19 +25,23 @@ export class NewPictureComponent {
 
     formData.append('title', mypics.title);
     formData.append('description', mypics.description);
-
     if (mypics.image) formData.append('image', mypics.image);
 
-    // TODO:
+    let validation = confirm(`Por favor, confirme os dados da Picture \n
+    Título: ${mypics.title} \n
+    Descrição: ${mypics.description}\n
+    `)
 
-    // 1- enviar para o service
-    const result = await this.myPicService.createPic(formData).subscribe();
-    if (!result) throw Error('Algo deu errado');
-    else {
-      // 2- exibir msg
-      this.messageService.add('Pic! adicionado com sucesso!');
-      // 3- redirect
-      setTimeout(() => this.router.navigate(['/']), 1000);
+    if (validation) {
+      try {
+        await this.myPicService.createPic(formData).subscribe();
+        this.messageService.add('Pic! adicionado com sucesso!');
+        setTimeout(() => this.router.navigate(['/']), 1500);
+      } catch (erroShare) {
+        this.messageService.add('Não foi possível compartilhar sua Picture')
+        throw console.error('Erro ao adicionar imagem', erroShare)
+      }
     }
+
   }
 }

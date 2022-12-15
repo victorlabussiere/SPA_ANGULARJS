@@ -15,6 +15,8 @@ import { NewPictureComponent } from './components/pages/new-picture/new-picture.
 import { PictureFormComponent } from './components/picture-form/picture-form.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PictureComponent } from './components/pages/picture/picture.component';
+import { EditPictureComponent } from './components/pages/edit-picture/edit-picture.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     NewPictureComponent,
     PictureFormComponent,
-    MessagesComponent
+    MessagesComponent,
+    PictureComponent,
+    EditPictureComponent
   ],
   imports: [
     FormsModule,

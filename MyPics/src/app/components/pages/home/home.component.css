@@ -4,6 +4,8 @@
     align-items: center;
     justify-content: center;
     gap: 1.2em;
+
+    padding: 0 1em;
 }
 
 .home-container header {
@@ -17,14 +19,20 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 2em;
-    margin: 2em 0;
 
     max-height: 64vh;
     min-width: 40vw;
+    margin: 2em 0;
+
+    border-radius: 1em;
 
     overflow-y: scroll;
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
+}
+
+.pictures-container::-webkit-scrollbar {
+    display: none;
 }
 
 .picture {
@@ -38,6 +46,8 @@
     background-color: #f6f6f6;
     padding: 1em;
 
+    border-radius: 1em;
+
     min-width: 100%;
     height: fit-content;
 }
@@ -45,6 +55,8 @@
 .picture img {
     width: 100%;
     height: 20em;
+    border-radius: .5em .5em 0 0;
+    text-align: center;
     background-color: #dedede;
 }
 

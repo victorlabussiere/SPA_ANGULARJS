@@ -16,11 +16,21 @@ export class MypicsService {
 
   constructor(private http: HttpClient) { }
 
-  getPic(): Observable<Response<MyPics[]>> {
+  getPics(): Observable<Response<MyPics[]>> {
     return this.http.get<Response<MyPics[]>>(this.apiUrl)
+  }
+
+  getPicById(id: number): Observable<Response<MyPics>> {
+    const url: string = `${this.apiUrl}/${id}`
+    return this.http.get<Response<MyPics>>(url)
   }
 
   createPic(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData)
+  }
+
+  removePic(id: number) {
+    const url: string = `${this.apiUrl}/${id}`
+    return this.http.delete(url)
   }
 }
