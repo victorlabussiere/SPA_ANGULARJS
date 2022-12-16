@@ -64,3 +64,13 @@ input:hover {
   border: 2px solid transparent;
   background-color: #EED248;
 }
+
+.validationError {
+  color: #dc3545;
+  border-left: #dc3545 solid 3px;
+  padding-left: 0.4rem;
+}
+
+.validationError p {
+  color: #dc3545;
+}

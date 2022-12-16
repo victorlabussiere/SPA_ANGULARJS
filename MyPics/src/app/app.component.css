@@ -4,6 +4,7 @@ main {
   align-items: center;
   justify-content: flex-start;
   min-height: 80vh;
+  height: 100%;
 
-  padding-top: 4rem;
+  padding: 4rem 0 4rem 0;
 }

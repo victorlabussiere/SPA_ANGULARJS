@@ -50,9 +50,3 @@ form {
 .file-image:hover {
   background-color: #18707a;
 }
-
-.validationError {
-  color: #dc3545;
-  border-left: #dc3545 solid 3px;
-  padding-left: 0.4rem;
-}

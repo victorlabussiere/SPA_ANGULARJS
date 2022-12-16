@@ -16,15 +16,13 @@
 
 .pictures-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
-    gap: 2em;
 
     max-height: 64vh;
     min-width: 40vw;
     margin: 2em 0;
-
-    border-radius: 1em;
+    gap: 2em;
 
     overflow-y: scroll;
     scroll-behavior: smooth;
@@ -36,7 +34,6 @@
 }
 
 .picture {
-    scroll-snap-align: start;
 
     display: flex;
     flex-direction: column;
@@ -44,28 +41,25 @@
     justify-content: flex-end;
 
     background-color: #f6f6f6;
+    border-radius: 1em;
+    width: 100%;
+    min-height: 64vh;
     padding: 1em;
 
-    border-radius: 1em;
-
-    min-width: 100%;
-    height: fit-content;
+    scroll-snap-align: start;
 }
 
 .picture img {
     width: 100%;
-    height: 20em;
-    border-radius: .5em .5em 0 0;
     text-align: center;
     background-color: #dedede;
+    border-radius: .5em .5em 0 0;
 }
 
 .picture .date {
     font-size: .7em;
     font-style: italic;
 }
-
-/* home form */
 
 .form-container {
     width: 100%;

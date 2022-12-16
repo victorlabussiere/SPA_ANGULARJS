@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { MyPics } from 'src/app/MyPics' // interface
+// interface
+import { MyPics } from 'src/app/MyPics'
 // services 
 import { MypicsService } from 'src/app/services/mypics.service'
 import { MessagesService } from 'src/app/services/messages.service'

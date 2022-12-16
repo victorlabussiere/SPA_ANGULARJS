@@ -76,15 +76,15 @@ i::before {
   content: '\f355';
 }
 
-a .subNav {
+.subNav {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
 
-  width: 50%;
-  margin: 0 auto;
+  width: 80vw;
   gap: .5rem;
   color: #135A62;
+  margin: 0 auto;
   background-color: #D8EBED;
 
   transition: .2s all ease-in-out;
@@ -93,16 +93,12 @@ a .subNav {
   font-weight: bold;
 }
 
-.subNav:hover {
-  transform: scale(1.02);
-}
-
-.subNav a {
+.subNav .subnav-link {
   color: #135A62;
   transition: .2s all;
 }
 
-.subNav a:hover {
+.subNav .subnav-link:hover {
   color: #bfa41c;
   box-sizing: border-box;
 }

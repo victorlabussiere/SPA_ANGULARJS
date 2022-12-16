@@ -1,26 +1,98 @@
-<div *ngIf="picture" class="container">
+<div
+    *ngIf="picture"
+    class="container"
+>
+    <!-- Conteúdo picture -->
     <div class="file-container">
         <h2>{{picture.title}}</h2>
-        <img class="picture-file" src="{{baseUrl}}/{{picture.id}}/uploads/{{picture.image}}"
-            alt=" Título: {{picture.title}}">
+        <img
+            class="picture-file"
+            src="{{baseUrl}}/{{picture.id}}/uploads/{{picture.image}}"
+            alt=" Título: {{picture.title}}"
+        >
     </div>
-
     <div class="description">
         <h3>Sobre a Picture: </h3>
         <p>{{picture.description}}</p>
     </div>
-
-
-    <div class="actions">
-
-        <a routerLink="edit" class="editButton action-button">
-            <fa-icon>{{faEdit}}</fa-icon>
-            Editar Picture
-        </a>
-        <button class="delete-button action-button" (click)="removeHandler(picture.id!)">
-            <fa-icon>{{faTimes}}</fa-icon>
-            Deletar Picture
-        </button>
+    <!-- Conteúdo picture -->
+    <!-- Comments Area -->
+    <span class="divisor"></span>
+    <div
+        class="comments-container"
+        *ngIf="commentsLength > 0; else noComments"
+    >
+        <h3>Comentários: </h3>
+        <div
+            class="comments"
+            *ngFor="let comment of picture.comments"
+        >
+            <span class="comment-author">By {{comment.username}}:</span>
+            <p class="comment"> {{comment.text}}</p>
+        </div>
     </div>
-    <!-- TODO Comentários -->
+    <!-- Comments Area -->
+    <!-- Excessão por Erro -->
+    <ng-template #noComments>
+        <p>Ninguém comentou essa Picture ainda. </p>
+    </ng-template>
+    <!-- Excessão por Erro -->
+    <!-- Form for Comments -->
+    <form
+        [formGroup]="commentForm"
+        #formDir="ngForm"
+        (ngSubmit)="onSubmit(formDir)"
+        class="form-container"
+    >
+        <section>
+            <label for="username-field">Deixe seu nome no comentário:</label>
+            <input
+                formControlName="username"
+                id="username-field"
+                placeholder="Digite aqui seu nome..."
+            >
+            <div
+                *ngIf="text.invalid && formDir.submitted"
+                class="validationError"
+            >
+                <p *ngIf="text.errors?.['required']">O texto é obrigatório.</p>
+            </div>
+        </section>
+        <section>
+            <label for="text">Comente esta Picture:</label>
+            <textarea
+                formControlName="text"
+                name="text"
+                id="text"
+                placeholder="Digite seu comentário..."
+            ></textarea>
+            <div
+                *ngIf="username.invalid && formDir.submitted"
+                class="validationError"
+            >
+                <p *ngIf="username.errors?.['required']">O nome do autor é obrigatório.</p>
+            </div>
+        </section>
+        <input
+            type="submit"
+            value="Comentar"
+            class="pButton"
+        >
+    </form>
+    <!-- Form for Comments -->
+    <!-- Buttons Area -->
+    <span class="divisor"></span>
+    <div class="actions">
+        <a
+            routerLink="edit"
+            class="editButton action-button"
+        >
+            <fa-icon>{{faEdit}}</fa-icon> Editar Picture </a>
+        <button
+            class="delete-button action-button"
+            (click)="removeHandler(picture.id!)"
+        >
+            <fa-icon>{{faTimes}}</fa-icon> Deletar Picture </button>
+    </div>
+    <!-- Buttons Area -->
 </div>

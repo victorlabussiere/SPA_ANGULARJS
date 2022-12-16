@@ -4,6 +4,5 @@ module.exports = class Environments {
         this.baseUrl = "http://localhost:3333/api/"
         this.apiUrl = this.baseUrl + page
     }
-    baseUrl
     apiUrl = this.apiUrl
 }   

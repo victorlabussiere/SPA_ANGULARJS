@@ -8,8 +8,11 @@
         <li id="add"><a routerLink="/mypics/new">Compartilhar</a></li>
     </ul>
 </nav>
-<a routerLink="/">
-    <nav class="subNav">
-        <p>Ir para o Feed</p>
-    </nav>
-</a>
+<nav class="subNav">
+    <a class="subnav-link" href="javascript: window.history.back()">
+        <fa-icon>{{leftArrow}}</fa-icon> Retornar
+    </a>
+    <a class="subnav-link" routerLink="/">
+        Ir para o Feed
+    </a>
+</nav>
