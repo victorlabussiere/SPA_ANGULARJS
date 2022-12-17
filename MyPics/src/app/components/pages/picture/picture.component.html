@@ -2,12 +2,11 @@
     *ngIf="picture"
     class="container"
 >
-    <!-- Conteúdo picture -->
     <div class="file-container">
         <h2>{{picture.title}}</h2>
         <img
             class="picture-file"
-            src="{{baseUrl}}/{{picture.id}}/uploads/{{picture.image}}"
+            src="{{baseUrl}}/{{picture.id}}/uploads/{{picture.file}}"
             alt=" Título: {{picture.title}}"
         >
     </div>
@@ -15,8 +14,6 @@
         <h3>Sobre a Picture: </h3>
         <p>{{picture.description}}</p>
     </div>
-    <!-- Conteúdo picture -->
-    <!-- Comments Area -->
     <span class="divisor"></span>
     <div
         class="comments-container"
@@ -31,13 +28,10 @@
             <p class="comment"> {{comment.text}}</p>
         </div>
     </div>
-    <!-- Comments Area -->
-    <!-- Excessão por Erro -->
     <ng-template #noComments>
         <p>Ninguém comentou essa Picture ainda. </p>
+        <span class="divisor"></span>
     </ng-template>
-    <!-- Excessão por Erro -->
-    <!-- Form for Comments -->
     <form
         [formGroup]="commentForm"
         #formDir="ngForm"
@@ -79,20 +73,20 @@
             class="pButton"
         >
     </form>
-    <!-- Form for Comments -->
-    <!-- Buttons Area -->
-    <span class="divisor"></span>
-    <div class="actions">
-        <a
-            routerLink="edit"
-            class="editButton action-button"
-        >
-            <fa-icon>{{faEdit}}</fa-icon> Editar Picture </a>
-        <button
-            class="delete-button action-button"
-            (click)="removeHandler(picture.id!)"
-        >
-            <fa-icon>{{faTimes}}</fa-icon> Deletar Picture </button>
+    <div class="buttonsArea">
+        <span class="divisor"></span>
+        <p>Opções</p>
+        <div class="actions">
+            <a
+                routerLink="edit"
+                class="editButton action-button"
+            >
+                <fa-icon>{{faEdit}}</fa-icon> Editar Picture </a>
+            <button
+                class="delete-button action-button"
+                (click)="removeHandler(picture.id!)"
+            >
+                <fa-icon>{{faTimes}}</fa-icon> Deletar Picture </button>
+        </div>
     </div>
-    <!-- Buttons Area -->
 </div>

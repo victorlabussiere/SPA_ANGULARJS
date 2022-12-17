@@ -3,30 +3,38 @@
         <h1>Veja o que estão compartilhando agora!</h1>
         <div class="form-container">
             <form>
-                <fa-icon [icon]="faSearch" (click)="search($event)"></fa-icon>
-                <input type="text" name="home_search" id="home_search" placeholder="Ou busque por título:"
-                    (input)="search($event)">
+                <fa-icon
+                    [icon]="faSearch"
+                    (click)="search($event)"
+                ></fa-icon>
+                <input
+                    type="text"
+                    name="home_search"
+                    id="home_search"
+                    placeholder="Ou busque por título:"
+                    (input)="search($event)"
+                >
             </form>
         </div>
     </header>
-
     <div *ngIf="allPics.length > 0; else noPics">
         <div class="pictures-container">
-            <div class="picture" *ngFor="let pic of pics">
-
-                <img src="{{baseApiUrl}}uploads/{{pic.image}}" alt="Título: {{pic.title}}">
+            <div
+                class="picture"
+                *ngFor="let pic of pics"
+            >
+                <img
+                    src="{{apiUrl}}/{{pic.id}}/uploads/{{pic.image}}"
+                    alt="Título: {{pic.title}}"
+                >
                 <h3> {{pic.title}}</h3>
-
                 <p class="date">Em: {{pic.created_at}}</p>
                 <p>Comentários: {{pic.comments!.length}}</p>
                 <p><a routerLink="{{page}}/{{pic.id}}">Detalhes</a></p>
-
             </div>
         </div>
     </div>
-
     <ng-template #noPics>
         <h1> Não há Pictures cadastradas </h1>
     </ng-template>
-
 </div>

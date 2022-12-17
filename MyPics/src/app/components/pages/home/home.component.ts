@@ -22,7 +22,7 @@ export class HomeComponent {
   pics: MyPics[] = [] // -> realiza um filtro para buscas de fotos
 
   // environment
-  page: string = 'mypics'
+  page: string = `mypics`
   baseApiUrl = new Env(this.page) // localhost:3333/api/[page = mypics]
   apiUrl = this.baseApiUrl.apiUrl //localhost:3333/api/page/
 

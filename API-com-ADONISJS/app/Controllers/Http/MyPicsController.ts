@@ -7,7 +7,7 @@ import MyPic from 'App/Models/MyPic' // importando o modelo do DB para realizar 
 export default class MyPicsController {
 
     private validationOptions = {
-        type: ['image'],
+        extname: ['jpg', 'gif', 'png'],
         size: '2mb'
     }
     // POST
@@ -28,6 +28,7 @@ export default class MyPicsController {
         const pic = await MyPic.create(body)
         pic
         response.status(201)
+
         return {
             message: "Foto publicada com sucesso.",
             data: pic
@@ -35,12 +36,16 @@ export default class MyPicsController {
     }
     // GET
     async index({ response }: HttpContextContract) {
-        const result = await MyPic.query().preload('comments')
-        if (!result) throw Error('Nenhum item encontrado na lista')
+        try {
+            const result = await MyPic.query().preload('comments')
+            if (!result) throw Error('Nenhum item encontrado na lista')
 
-        response.status(200)
-        return {
-            data: result
+            response.status(200)
+            return {
+                data: result
+            }
+        } catch (errorGet) {
+            console.error('Erro de requisição', errorGet.message)
         }
     }
     // GET w QUERY

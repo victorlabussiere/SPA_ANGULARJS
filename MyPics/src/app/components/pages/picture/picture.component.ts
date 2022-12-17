@@ -50,6 +50,7 @@ export class PictureComponent {
     this.myPicService // trazer os dados e aplicar em this.picture
       .getPicById(id)
       .subscribe(item => {
+        console.log('data', item);
         this.picture = item.data
         this.commentsLength = this.picture!.comments!.length
       })

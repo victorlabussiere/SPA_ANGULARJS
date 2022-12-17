@@ -115,3 +115,12 @@
     height: 1px;
     background-color: #dfdfdf;
 }
+
+.buttonsArea {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: flex-start;
+
+    gap: 1rem;
+}
