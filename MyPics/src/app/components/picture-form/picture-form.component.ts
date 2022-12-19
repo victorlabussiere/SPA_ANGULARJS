@@ -1,6 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms"
 import { MyPics } from 'src/app/MyPics';
+import { MessagesService } from 'src/app/services/messages.service';
+import { MypicsService } from 'src/app/services/mypics.service';
 
 @Component({
   selector: 'app-picture-form',
@@ -15,8 +17,8 @@ export class PictureFormComponent {
 
   myPicsForm!: FormGroup
 
-
-  constructor() { } // inicialização com a instancialização.
+  constructor(private messageServices: MessagesService,
+    private myPicsService: MypicsService) { } // inicialização com a instancialização.
 
   ngOnInit(): void {  // inicialização após o angular ler seus componentes.
 
@@ -36,12 +38,10 @@ export class PictureFormComponent {
 
   onFileSelected(event: any) {
     const [file]: File[] = event.target.files
-    const result = this.myPicsForm.patchValue({ image: file }) // valor definido fora do ngOnInit pelo método patchValue
-
-    return result
+    return this.myPicsForm.patchValue({ image: file }) // valor definido fora do ngOnInit pelo método patchValue
   }
 
-  submit() {
+  submit() {  // Emit event to parent file: New Picture Form
     this.myPicsForm.invalid
       ? console.error('Erro de validação. Confira as informações')
       : this.onSubmit.emit(this.myPicsForm.value)

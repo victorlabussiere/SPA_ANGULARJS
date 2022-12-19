@@ -23,17 +23,17 @@ export class HomeComponent {
 
   // environment
   page: string = `mypics`
-  baseApiUrl = new Env(this.page) // localhost:3333/api/[page = mypics]
-  apiUrl = this.baseApiUrl.apiUrl //localhost:3333/api/page/
+  baseApiUrl = new Env(this.page).apiUrl // localhost:3333/api/[page = mypics]
+
 
   // todo search
 
   constructor(private myPicService: MypicsService) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     // home load on initialization
-    this.myPicService.getPics().subscribe(async i => {
+    await this.myPicService.getPics().subscribe(async i => {
       const data = i.data
 
       data.map(e => {
@@ -44,6 +44,7 @@ export class HomeComponent {
       this.allPics = data
       this.pics = data
     })
+
   }
 
   search(e: Event): void {

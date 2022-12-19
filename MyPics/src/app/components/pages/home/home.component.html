@@ -23,9 +23,10 @@
                 class="picture"
                 *ngFor="let pic of pics"
             >
+                <!-- IMAGEM -->
                 <img
-                    src="{{apiUrl}}/{{pic.id}}/uploads/{{pic.image}}"
-                    alt="Título: {{pic.title}}"
+                    src="{{baseApiUrl}}/uploads/{{pic.image}}"
+                    alt="File: {{pic.image}}"
                 >
                 <h3> {{pic.title}}</h3>
                 <p class="date">Em: {{pic.created_at}}</p>
@@ -34,6 +35,7 @@
             </div>
         </div>
     </div>
+    <!-- No pics -->
     <ng-template #noPics>
         <h1> Não há Pictures cadastradas </h1>
     </ng-template>

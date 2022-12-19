@@ -20,24 +20,22 @@ export class NewPictureComponent {
 
   ngOnInit(): void { }
 
-  async createHandler(mypics: MyPics) {
-    const formData = new FormData();
-
-    formData.append('title', mypics.title);
-    formData.append('description', mypics.description);
-    if (mypics.image) formData.append('image', mypics.image);
-
-    let validation = confirm(`Por favor, confirme os dados da Picture \n
-    Título: ${mypics.title} \n
-    Descrição: ${mypics.description}\n
-    `)
-
+  async createHandler(mypics: MyPics) {   // receive event from child file: Picture Form
+    let validation = confirm(`Por favor, confirme os dados da Picture \n Título: ${mypics.title} \n Descrição: ${mypics.description}\n`)
     if (validation) {
       try {
+        const formData = new FormData();
+
+        formData.append('title', mypics.title);
+        formData.append('description', mypics.description);
+        if (mypics.image) formData.append('image', mypics.image);
+
         await this.myPicService.createPic(formData).subscribe();
         this.messageService.add('Pic! adicionado com sucesso!');
         setTimeout(() => this.router.navigate(['/']), 1500);
+
       } catch (erroShare) {
+
         this.messageService.add('Não foi possível compartilhar sua Picture')
         throw console.error('Erro ao adicionar imagem', erroShare)
       }
