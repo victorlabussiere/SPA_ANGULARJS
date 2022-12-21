@@ -1,1 +1,0 @@
-const MyPicsService = require('../../services/MyPicsServices')
